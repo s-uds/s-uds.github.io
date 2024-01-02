@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hugo Berthier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        html {
+            background: hsl(0 1% 98%);
+        }
+
+        html {
+            padding: 0 20em;
+            color: hsl(0 1% 20%);
+        }
+
+        body {
+            padding-top: 8em;
+        }
+
+        ul, li {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            display: inline;
+        }
+
+        .links li {
+            padding-right: 0.25em;
+        }
+
+        .lang {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 1em;
+        }
+
+        a {
+            color: #2151d9;
+        }
+
+        a:hover, a:active, a:visited, .selected {
+            text-decoration: none;
+        }
+
+        textarea {
+            resize: none;
+            height: 150px;
+        }
+
+        input, textarea {
+            padding: 0.5em;
+            min-width: 30ch;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1em;
+            margin: 2em 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hi!</h1>
+    <ul class="links">
+        <li>
+            <a href="#">CV</a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/in/97711652">LinkedIn</a>
+        </li>
+        <li>
+            <a href="https://github.com/s-uds">GitHub</a>
+        </li>
+<!--         <li>
+            <a href="#" id="contact-link">Contact</a>
+        </li> -->
+    </div>
+<!--     <div class="lang">
+        FR / EN
+    </div> -->
+    <div class="contact-form hidden" id="contact-form">
+        <input type="email" placeholder="Email" />
+        <textarea placeholder="Message"></textarea>
+        <button type="submit">Send</button>
+    </div>
+    <script type="text/javascript">
+        const contactLink = document.querySelector('#contact-link');
+
+        const toggleContactForm = () => {
+            document.querySelector('#contact-form').classList.toggle('hidden');
+            contactLink.classList.toggle('selected');
+        }
+
+        contactLink.addEventListener('click', toggleContactForm);
+    </script>
+</body>
+</html>
