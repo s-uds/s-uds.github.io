@@ -11,19 +11,6 @@
             font-family: 'Work Sans', sans-serif;
         }
 
-        html {
-            background: hsl(0 1% 98%);
-        }
-
-        html {
-            padding: 0 20em;
-            color: hsl(0 1% 20%);
-        }
-
-        body {
-            padding-top: 8em;
-        }
-
         ul, li {
             margin: 0;
             padding: 0;
@@ -31,81 +18,80 @@
             display: inline;
         }
 
-        .links li {
-            padding-right: 0.25em;
+        a:hover, a:active, a:visited { text-decoration: none; }
+
+        html {
+            padding: 0 20em;
+            transition: background-color ease-in 250ms;
+            background-color: hsl(0, 10%, 100%);
+            color: hsl(0 1% 20%);
         }
 
-        .lang {
-            position: absolute;
-            top: 0;
-            right: 0;
-            margin: 1em;
-        }
+        body { padding-top: 8em; }
 
-        a {
-            color: #2151d9;
-        }
+        a { color: #2151d9; }
 
-        a:hover, a:active, a:visited, .selected {
-            text-decoration: none;
-        }
-
-        textarea {
-            resize: none;
-            height: 150px;
-        }
-
-        input, textarea {
-            padding: 0.5em;
-            min-width: 30ch;
-        }
-
-        .contact-form {
+        h1 {
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 1em;
-            margin: 2em 0;
+            position: relative;
+            width: 1.60ch;
+            opacity: 0;
+            animation: fade-in 100ms ease-in 0.5s forwards;
         }
 
-        .hidden {
-            display: none;
+        #bang {
+            position: absolute;
+            right: 0;
+            transform: rotate(360deg);
+            animation: rotate-and-slide 150ms ease-in 1s forwards, scale-up 150ms ease-in 1.5s forwards;
+        }
+
+        .links li { padding-right: 0.25em; }
+
+        .links li:first-child {
+            opacity: 0;
+            animation: fade-in 250ms ease-in 2s forwards;
+        }
+
+        .links li:last-child {
+            opacity: 0;
+            animation: fade-in 150ms ease-in 2.3s forwards;
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fade-in 150ms ease-in 1.250s forwards;
+        }
+
+        @keyframes fade-in {
+            0% { opacity: 0 }
+            100% { opacity: 1 }
+        }
+
+        @keyframes rotate-and-slide {
+            0% { transform: rotate(0deg) translateX(0) scale(1); }
+            100% { transform: rotate(180deg) translateX(-0.5ch); }
+        }
+
+        @keyframes scale-up {
+            0% { transform: rotate(180deg) translateX(-0.5ch) scale(1.2); }
+            100% { transform: rotate(180deg) translateX(-0.5ch) scale(0.9); }
         }
     </style>
 </head>
 <body>
-    <h1>Hi!</h1>
+    <h1>
+        <div id="fill-in">H</div>
+        <div class="fade-in">i</div>
+        <div id="bang">i</div>
+    </h1>
     <ul class="links">
         <li>
-            <a href="#">CV</a>
+            <a id="linkedin" href="https://www.linkedin.com/in/97711652" target="_blank">LinkedIn</a>
         </li>
         <li>
-            <a href="https://www.linkedin.com/in/97711652">LinkedIn</a>
+            <a id="github" href="https://github.com/s-uds" target="_blank">GitHub</a>
         </li>
-        <li>
-            <a href="https://github.com/s-uds">GitHub</a>
-        </li>
-<!--         <li>
-            <a href="#" id="contact-link">Contact</a>
-        </li> -->
     </div>
-<!--     <div class="lang">
-        FR / EN
-    </div> -->
-    <div class="contact-form hidden" id="contact-form">
-        <input type="email" placeholder="Email" />
-        <textarea placeholder="Message"></textarea>
-        <button type="submit">Send</button>
-    </div>
-    <script type="text/javascript">
-        const contactLink = document.querySelector('#contact-link');
-
-        const toggleContactForm = () => {
-            document.querySelector('#contact-form').classList.toggle('hidden');
-            contactLink.classList.toggle('selected');
-        }
-
-        contactLink.addEventListener('click', toggleContactForm);
-    </script>
 </body>
 </html>
